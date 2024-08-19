@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import BarIcons from "../component/BarIcons";
-import { faBan, faBurger, faFile, faGlassWaterDroplet, faMugHot, faPenToSquare, faPersonRunning, faPlus, faUtensils, faWineGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPersonRunning, faPlus, faUtensils, faWineGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import SnackLog from "../component/SnackLog";
 
@@ -21,20 +21,20 @@ export default function UserProfile() {
 
             {/* Sugestões */}
             <View className="flex justify-start items-start w-full px-8">
-                <Text className="text-neutral-50 font-bold text-2xl mt-6 mb-4">Sugestões</Text>
+                <Text className="text-neutral-50 font-bold text-2xl mt-8 mb-4">Sugestões</Text>
                 <View className="flex flex-row items-start justify-between w-full">
                     <BarIcons onClick={()=>{}} text="Refeições" icon={faUtensils}></BarIcons>
 
-                    <BarIcons onClick={()=>{}} text="Consumo de água" icon={faGlassWaterDroplet}></BarIcons>
+                    <BarIcons onClick={()=>{}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
 
-                    <BarIcons onClick={()=>{}} text="Restrição alimentar" icon={faBan}></BarIcons>
+                    <BarIcons onClick={()=>{}} text="Restrição Alimentar" icon={faBan}></BarIcons>
 
                     <BarIcons onClick={()=>{}} text="Metas" icon={faPersonRunning}></BarIcons>
                 </View>
             </View>
 
             {/*Registros*/}
-            <View className="flex justify-start items-start w-full px-8 mt-6">
+            <View className="flex justify-start items-start w-full px-8 mt-8">
                 <View className="flex flex-row items-center justify-between w-full">
                     <Text className="text-2xl text-neutral-50 font-bold">Registro de Refeições</Text>
                     <TouchableOpacity className="flex flex-row p-2 justify-center items-center gap-1">
@@ -43,11 +43,11 @@ export default function UserProfile() {
                     </TouchableOpacity>
                 </View>
                 <View className="mt-4">
-                    <SnackLog text="Café da Manhã - 500kcal" icon={faMugHot} dataEmPortugues={new Date()}></SnackLog>
+                    <SnackLog onClick={()=>{}} text="Café da Manhã - 500kcal" icon={faMugHot} dataEmPortugues={new Date()}></SnackLog>
 
-                    <SnackLog text="Almoço - 800kcal" icon={faBurger} dataEmPortugues={new Date()}></SnackLog>
+                    <SnackLog onClick={()=>{}} text="Almoço - 800kcal" icon={faBurger} dataEmPortugues={new Date()}></SnackLog>
 
-                    <SnackLog text="Janta - 1050kcal" icon={faWineGlass} dataEmPortugues={new Date()} end></SnackLog>
+                    <SnackLog onClick={()=>{}} text="Janta - 1050kcal" icon={faWineGlass} dataEmPortugues={new Date()} end></SnackLog>
                 </View>
                 <TouchableOpacity className="flex items-center mt-1">
                 <Text className="text-neutral-50 opacity-50 text">Ver Ultimas Refeições</Text>
