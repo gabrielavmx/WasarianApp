@@ -6,7 +6,7 @@ import ButtonSearch from "./buttonSearch";
 
 type AnimatedSearchProps ={
     children: ReactNode,
-    selectedValue?: string,
+    selectedValue?: string[],
     text: string
 }
 
@@ -30,11 +30,16 @@ export default function AnimatedSearch({children, selectedValue, text}:AnimatedS
 
     return(
         <View className="flex justify-start items-start w-full px-8 mt-8 border-b border-neutral-700 pb-6">
-        <View className="flex flex-row justify-between items-center w-full">
+        <View className="flex flex-row justify-between items-center w-full max-w-screen">
             <Text className="text-neutral-50 text-xl font-bold">{text}</Text>
 
             <TouchableOpacity onPress={()=>setOpen(!open)} className="flex flex-row items-center justify-center">
-                <Text className="mr-1 text-neutral-50 opacity-50">{selectedValue}</Text>
+                <Text className="w-20 mr-1 text-neutral-50 opacity-50 text-right" numberOfLines={1} ellipsizeMode="tail">
+                    {selectedValue?.map((i, index) => {
+                        const end = index + 1 != selectedValue.length ? ", ": ""
+                        return(i+end)
+                    } )}
+                </Text>
                 <Animated.View style={{ transform: [{ rotate }] }}>
                     <FontAwesomeIcon color="white" icon={faChevronRight}/>
                 </Animated.View>

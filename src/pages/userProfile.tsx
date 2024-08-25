@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import BarIcons from "../component/BarIcons";
 import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPersonRunning, faPlus, faUtensils, faWineGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -6,7 +6,8 @@ import SnackLog from "../component/SnackLog";
 
 export default function UserProfile() {
     return (
-        <View className="bg-neutral-900 h-full w-full flex items-center pt-24">
+        <ScrollView className="h-full bg-neutral-900 w-full">
+        <View className="flex items-center pt-24">
             {/* Nome e foto */}
             <View className="h-20 w-20 bg-green-500 mb-3 rounded-lg"></View>
             <View className="flex gap-1 items-center">
@@ -54,5 +55,6 @@ export default function UserProfile() {
                 </TouchableOpacity>
             </View>
         </View>
+        </ScrollView>
     );
 }
