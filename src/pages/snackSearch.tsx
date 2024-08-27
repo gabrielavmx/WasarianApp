@@ -92,9 +92,9 @@ export default function SnackSearch() {
                     </View>
                 </AnimatedSearch>
 
-                <View className="py-6">
-                    <TouchableOpacity>
-                        <View className="flex flex-row items-center bg-emerald-600 px-8 py-4 rounded-full">
+                <View className="py-6 w-full px-8 flex items-center justify-center">
+                    <TouchableOpacity className="w-full flex items-center justify-center">
+                        <View className="flex flex-row items-center bg-emerald-600 px-8 py-4 rounded-2xl w-full justify-center">
                             <Text className="text-neutral-50 text-lg font-extrabold mr-2">Pesquisar</Text>
                             <FontAwesomeIcon color="#fafafa" icon={faSearch}/>
                         </View>

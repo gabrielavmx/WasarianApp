@@ -28,7 +28,7 @@ export default function ButtonSearch({text, onClick, selectedValues}:ButtonSearc
 
     return(
         <TouchableOpacity onPress={handleSelect}>
-            <View className={"flex items-center justify-center h-12 w-42 rounded-3xl bg-neutral-200 px-4 "+stylosos}>
+            <View className={"flex items-center justify-center h-12 w-42 rounded-2xl bg-neutral-200 px-4 "+stylosos}>
                 <Text className="text-neutral-900 text-base">{text}</Text>
             </View>
         </TouchableOpacity>

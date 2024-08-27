@@ -4,7 +4,10 @@ import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPerson
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import SnackLog from "../component/SnackLog";
 
-export default function UserProfile() {
+type userProfileProps = {navigation:any}
+
+export default function UserProfile({ navigation }:userProfileProps) {
+
     return (
         <ScrollView className="h-full bg-neutral-900 w-full">
         <View className="flex items-center pt-24">
@@ -26,7 +29,7 @@ export default function UserProfile() {
                 <View className="flex flex-row items-start justify-between w-full">
                     <BarIcons onClick={()=>{}} text="Refeições" icon={faUtensils}></BarIcons>
 
-                    <BarIcons onClick={()=>{}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
+                    <BarIcons onClick={()=>{navigation.navigate('WaterConsumption')}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
 
                     <BarIcons onClick={()=>{}} text="Restrição Alimentar" icon={faBan}></BarIcons>
 
