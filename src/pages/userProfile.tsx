@@ -27,7 +27,7 @@ export default function UserProfile({ navigation }:userProfileProps) {
             <View className="flex justify-start items-start w-full px-8">
                 <Text className="text-neutral-50 font-bold text-2xl mt-8 mb-4">Sugestões</Text>
                 <View className="flex flex-row items-start justify-between w-full">
-                    <BarIcons onClick={()=>{}} text="Refeições" icon={faUtensils}></BarIcons>
+                    <BarIcons onClick={()=>{navigation.navigate('DietPlan')}} text="Refeições" icon={faUtensils}></BarIcons>
 
                     <BarIcons onClick={()=>{navigation.navigate('WaterConsumption')}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
 

@@ -9,6 +9,7 @@ import SnackSearch from './src/pages/snackSearch';
 import WaterConsumption from './src/pages/waterConsumption';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DietaryRestrictions from './src/pages/dietaryRestrictions';
+import DietPlan from './src/pages/dietPlan';
 
 function HomeScreen() {
   return (
@@ -26,6 +27,9 @@ const ProfileStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="UserProfile" component={userProfile} options={{ headerShown: false }} />
       <Stack.Screen name="WaterConsumption" component={WaterConsumption} options={{ headerShown: false }} />
+
+      <Stack.Screen name="DietPlan" component={DietPlan} options={{ headerShown: false }} />
+
     </Stack.Navigator>
   );
 }

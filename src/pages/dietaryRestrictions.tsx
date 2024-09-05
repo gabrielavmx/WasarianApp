@@ -15,7 +15,7 @@ export default function DietaryRestrictions() {
     return (
         <PaperProvider theme={theme}>
             <ScrollView className="h-full w-full bg-neutral-900">
-                <View className="flex items-center pt-16 px-4">
+                <View className="flex items-center pt-20 px-4">
                     <Text className="text-neutral-50 text-2xl font-bold">
                         Restrições Alimentares
                     </Text>
