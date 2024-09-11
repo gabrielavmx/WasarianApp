@@ -1,15 +1,36 @@
 import { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { RadioButton, Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import ButtonSearch from "../component/buttonSearch";
 
 export default function DietaryRestrictions() {
-    const [selectedRestriction, setSelectedRestriction] = useState('none');
+    const [selectedRestrictions, setSelectedRestrictions] = useState<string[]>([]);
     const theme = {
         ...DefaultTheme,
         colors: {
             ...DefaultTheme.colors,
-            primary: '#059669', // Altere para a cor desejada
+            primary: '#059669', 
         },
+    };
+
+    // ffunção para adicionar ou remover restrições
+    const toggleRestriction = (value: string) => {
+        if (value === 'none') {
+            // se o nenhum estiver clicado, deixa d selecionar os outros
+            setSelectedRestrictions(['none']);
+        } else {
+            setSelectedRestrictions((prevState) => {
+                if (prevState.includes('none')) {
+                    prevState = prevState.filter((item) => item !== 'none');
+                }
+
+                if (prevState.includes(value)) {
+                    return prevState.filter((item) => item !== value);
+                } else {
+                    return [...prevState, value];
+                }
+            });
+        }
     };
 
     return (
@@ -32,44 +53,71 @@ export default function DietaryRestrictions() {
                         <View className="flex flex-row items-center mb-2">
                             <RadioButton
                                 value="none"
-                                status={selectedRestriction === 'none' ? 'checked' : 'unchecked'}
-                                onPress={() => setSelectedRestriction('none')}
+                                status={selectedRestrictions.includes('none') ? 'checked' : 'unchecked'}
+                                onPress={() => toggleRestriction('none')}
                             />
                             <Text className="text-neutral-50 ml-2">Nenhuma</Text>
                         </View>
                         <View className="flex flex-row items-center mb-2">
                             <RadioButton
                                 value="vegetarian"
-                                status={selectedRestriction === 'vegetarian' ? 'checked' : 'unchecked'}
-                                onPress={() => setSelectedRestriction('vegetarian')}
+                                status={selectedRestrictions.includes('vegetarian') ? 'checked' : 'unchecked'}
+                                onPress={() => toggleRestriction('vegetarian')}
                             />
                             <Text className="text-neutral-50 ml-2">Vegetariano</Text>
                         </View>
                         <View className="flex flex-row items-center">
                             <RadioButton
                                 value="vegan"
-                                status={selectedRestriction === 'vegan' ? 'checked' : 'unchecked'}
-                                onPress={() => setSelectedRestriction('vegan')}
+                                status={selectedRestrictions.includes('vegan') ? 'checked' : 'unchecked'}
+                                onPress={() => toggleRestriction('vegan')}
                             />
                             <Text className="text-neutral-50 ml-2">Vegano</Text>
                         </View>
                         <View className="flex flex-row items-center">
                             <RadioButton
                                 value="intolerancia"
-                                status={selectedRestriction === 'intolerancia' ? 'checked' : 'unchecked'}
-                                onPress={() => setSelectedRestriction('intolerancia')}
+                                status={selectedRestrictions.includes('intolerancia') ? 'checked' : 'unchecked'}
+                                onPress={() => toggleRestriction('intolerancia')}
                             />
                             <Text className="text-neutral-50 ml-2">Intolerância</Text>
                         </View>
                         <View className="flex flex-row items-center">
                             <RadioButton
                                 value="alergia"
-                                status={selectedRestriction === 'alergia' ? 'checked' : 'unchecked'}
-                                onPress={() => setSelectedRestriction('alergia')}
+                                status={selectedRestrictions.includes('alergia') ? 'checked' : 'unchecked'}
+                                onPress={() => toggleRestriction('alergia')}
                             />
                             <Text className="text-neutral-50 ml-2">Alergia</Text>
                         </View>
                     </View>
+                </View>
+
+                <View>
+                    {selectedRestrictions.includes("alergia") &&
+                    <View className="flex flex-row justify-center items-center mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl flex-wrap" style={{ gap: 10 }}>
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Ovos" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Leite" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Frutos do Mar" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Amendoim" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Soja" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Peixe" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Nozes" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Trigo" />
+                    </View>}
+
+                    {selectedRestrictions.includes("intolerancia") &&
+                    <View className="flex flex-row justify-center items-center mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl flex-wrap" style={{ gap: 10 }}>
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Lactose" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Glúten" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Frutose" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Sacarose" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Milho" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Chocolate" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Peixe" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Nozes" />
+                        <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Ovos" />
+                    </View>}
                 </View>
 
                 <View className="py-6 w-full px-8 flex items-center justify-center">
@@ -80,6 +128,6 @@ export default function DietaryRestrictions() {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </PaperProvider>    
+        </PaperProvider>
     );
 }

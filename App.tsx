@@ -10,6 +10,8 @@ import WaterConsumption from './src/pages/waterConsumption';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DietaryRestrictions from './src/pages/dietaryRestrictions';
 import DietPlan from './src/pages/dietPlan';
+import Login from './src/pages/login';
+import Register from './src/pages/register';
 
 function HomeScreen() {
   return (
@@ -22,15 +24,26 @@ function HomeScreen() {
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+const AuthenticationStack = ()=>{
+  return(
+  <Stack.Navigator>
+    <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+    <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+    <Stack.Screen name="UserProfile" component={userProfile} options={{ headerShown: false }} />
+  </Stack.Navigator>
+  );
+}
+
 const ProfileStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="UserProfile" component={userProfile} options={{ headerShown: false }} />
       <Stack.Screen name="WaterConsumption" component={WaterConsumption} options={{ headerShown: false }} />
-
       <Stack.Screen name="DietPlan" component={DietPlan} options={{ headerShown: false }} />
-
+      <Stack.Screen name="DietaryRestrictions" component={DietaryRestrictions} options={{ headerShown: false }} />
     </Stack.Navigator>
+
+    
   );
 }
 
@@ -47,7 +60,7 @@ export default function App() {
               icon = faUtensils;
             } else if (route.name === 'Profile') {
               icon = faUser;
-            } else if (route.name === 'DietaryRestrictions') {
+            } else if (route.name === 'Authentication') {
               icon = faGlassWater;
             }
 
@@ -64,7 +77,7 @@ export default function App() {
       >
         <Tab.Screen name="SnackSearch" component={SnackSearch} options={{ tabBarLabel: '' }} />
         <Tab.Screen name="Profile" component={ProfileStack} options={{ tabBarLabel: '' }} />
-        <Tab.Screen name="DietaryRestrictions" component={DietaryRestrictions} options={{ tabBarLabel: '' }} />
+        <Tab.Screen name="Authentication" component={AuthenticationStack} options={{ tabBarLabel: '' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

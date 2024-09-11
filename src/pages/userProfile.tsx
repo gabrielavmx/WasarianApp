@@ -31,7 +31,7 @@ export default function UserProfile({ navigation }:userProfileProps) {
 
                     <BarIcons onClick={()=>{navigation.navigate('WaterConsumption')}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
 
-                    <BarIcons onClick={()=>{}} text="Restrição Alimentar" icon={faBan}></BarIcons>
+                    <BarIcons onClick={()=>{navigation.navigate('DietaryRestrictions')}} text="Restrição Alimentar" icon={faBan}></BarIcons>
 
                     <BarIcons onClick={()=>{}} text="Metas" icon={faPersonRunning}></BarIcons>
                 </View>
