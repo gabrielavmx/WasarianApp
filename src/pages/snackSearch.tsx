@@ -5,6 +5,7 @@ import AnimatedSearch from "../component/AnimatedSearch";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
 export default function SnackSearch() {
     const [SearchFilterRestritions, setSearchFilterRestritions] = useState<string[]>([]);

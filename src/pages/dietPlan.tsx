@@ -3,6 +3,7 @@ import FoodBar from "../component/FoodBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 import DietOptions from "../component/DietOptions";
+import React from "react";
 
 export default function DietPlan() {
     return (
