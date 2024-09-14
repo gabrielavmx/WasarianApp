@@ -49,6 +49,24 @@ export default function Register({ navigation }: registerProps) {
         return passwordRegex.test(password);
     };
 
+    // Função para calcular idade
+    const calculateAge = (birthDate) => {
+        const today = new Date();
+        const birthYear = birthDate.getFullYear();
+        const age = today.getFullYear() - birthYear;
+
+        // Verifica se o aniversário já passou neste ano, se não, subtrai 1 da idade
+        const hasHadBirthdayThisYear = (today.getMonth() > birthDate.getMonth()) || 
+                                        (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+        return hasHadBirthdayThisYear ? age : age - 1;
+    };
+
+    // Função para validar idade
+    const isValidAge = (birthDate) => {
+        const age = calculateAge(birthDate);
+        return age >= 13 && age <= 120;
+    };
+
     const handleRegister = async () => {
         // Validações
         if (!isValidEmail(textEmail)) {
@@ -58,6 +76,11 @@ export default function Register({ navigation }: registerProps) {
 
         if (!isValidPassword(textSenha)) {
             Alert.alert('Erro', 'A senha deve conter no mínimo 8 caracteres, incluindo números e caracteres especiais.');
+            return;
+        }
+
+        if (!isValidAge(birthDate)) {
+            Alert.alert('Erro', 'Insira uma data de Nascimento Válida (mínimo 13 anos).');
             return;
         }
 
