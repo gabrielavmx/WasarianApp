@@ -80,7 +80,7 @@ export default function Register({ navigation }: registerProps) {
         }
 
         if (!isValidAge(birthDate)) {
-            Alert.alert('Erro', 'Insira uma data de Nascimento Válida (mínimo 13 anos).');
+            Alert.alert('Erro', 'Insira uma Data de Nascimento Válida (mínimo 13 anos).');
             return;
         }
 
