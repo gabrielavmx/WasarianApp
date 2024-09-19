@@ -42,12 +42,12 @@ export default function Login({ navigation }:loginProps){
                 </View> 
             </View>   
 
-            <TouchableOpacity className="flex items-end px-10">
+            <TouchableOpacity className="flex items-end px-10" onPress={()=>{navigation.navigate('ForgottenPassword')}}>
                 <Text className="text-neutral-50 text-base">Esqueceu Sua Senha?</Text>
             </TouchableOpacity>
                     
             <View className="py-8 w-full px-8 flex items-center justify-center">
-                <TouchableOpacity className="w-full flex items-center justify-center" onPress={()=>{navigation.navigate('UserProfile')}}>
+                <TouchableOpacity className="w-full flex items-center justify-center" onPress={()=>{navigation.navigate('TabScreen')}}>
                     <View className="flex flex-row items-center bg-emerald-600 px-8 py-4 rounded-2xl w-full justify-center">
                         <Text className="text-neutral-50 text-lg font-extrabold mr-2">Entrar</Text>
                     </View>

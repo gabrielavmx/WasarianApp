@@ -23,7 +23,7 @@ export default function Register({ navigation }:registerProps){
         },
     };
 
-    const onChangeDate = (event, selectedDate) => {
+    const onChangeDate = (event:any, selectedDate:any) => {
         if (selectedDate) {
             const currentDate = selectedDate;
             setShowDatePicker(Platform.OS === 'ios');
@@ -33,7 +33,7 @@ export default function Register({ navigation }:registerProps){
         }
     };
 
-    const formatDate = (date) => {
+    const formatDate = (date:any) => {
         return date ? date.toLocaleDateString('pt-BR') : '';
     };
 
