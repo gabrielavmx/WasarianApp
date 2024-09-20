@@ -15,7 +15,6 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ error: 'Email already exists' });
         }
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(senha, 10);
 
         // Create the new user

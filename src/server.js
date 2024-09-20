@@ -4,6 +4,7 @@ const cors = require('cors');
 const sequelize = require('./db');
 const waterRoutes = require('./routes/water.js');
 const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth.js');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json()); // Adiciona o middleware para analisar JSON
 app.use(express.urlencoded({ extended: true })); // Adiciona o middleware para analisar URL-encoded data
 app.use('/water', waterRoutes);
 app.use('/user', userRoutes);
-
+app.use('/auth', authRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
