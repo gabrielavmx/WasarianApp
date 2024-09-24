@@ -3,6 +3,7 @@ import BarIcons from "../component/BarIcons";
 import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPersonRunning, faPlus, faUtensils, faWineGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import SnackLog from "../component/SnackLog";
+import React from "react";
 
 type userProfileProps = {navigation:any}
 

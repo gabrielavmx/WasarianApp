@@ -1,12 +1,39 @@
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import React from "react";
 import { useState } from "react";
-import { ScrollView, Text, View, Dimensions, TextInput, TouchableOpacity } from "react-native";
+import { ScrollView, Text, View, Dimensions, TextInput, TouchableOpacity, Alert } from "react-native";
 import { PieChart } from 'react-native-chart-kit';
 
 export default function WaterConsumption() {
     const [text, setText] = useState('');
     const screenWidth = Dimensions.get('window').width;
+
+    const sendDataToServer = async () => {
+        try {
+            const response = await fetch('http://192.168.0.2:3000/water/add', {
+                method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                agua_consumida: text,
+            }),
+            });
+
+            const responseData = await response.json();
+            console.log('Resposta do servidor:', responseData);
+
+            if (response.ok) {
+                Alert.alert('Sucesso', 'Dados enviados com sucesso!');
+                setText(''); // Limpa o campo de texto após enviar
+            } else {
+                Alert.alert('Erro', 'Falha ao enviar dados.');
+            }
+        } catch (error) {
+            Alert.alert('Erro', 'Erro ao conectar ao servidor.');
+        }
+    };
 
     const data = [
         {
@@ -62,10 +89,10 @@ export default function WaterConsumption() {
                         value={text}
                         onChangeText={setText}  // Atualiza o estado com o texto digitado
                         placeholder="Digite aqui"  // Texto exibido quando o campo está vazio
-                        keyboardType="default"  // Tipo de teclado a ser exibido
+                        keyboardType="decimal-pad"  // Tipo de teclado a ser exibido
                         placeholderTextColor={"#fafafa"}
                     />
-                    <TouchableOpacity className="flex items-center w-full">
+                    <TouchableOpacity className="flex items-center w-full" onPress={sendDataToServer}>
                         <View className=" flex items-center border-4 border-emerald-500 rounded-xl py-2 w-full">
                             <Text className="text-emerald-500 text-xl">Adicionar</Text>
                         </View>
