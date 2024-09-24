@@ -2,6 +2,7 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type loginProps = { navigation: any };
 
@@ -26,6 +27,8 @@ export default function Login({ navigation }: loginProps) {
             if (contentType && contentType.indexOf("application/json") !== -1) {
                 const result = await response.json();
                 if (response.status === 200) {
+                    console.log('Resultado do login:', result.userId);
+                    await AsyncStorage.setItem('userId', result.userId.toString());
                     navigation.navigate('UserProfile', { userId: result.userId });
                 } else {
                     Alert.alert('Login failed', result.message);

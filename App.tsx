@@ -75,9 +75,9 @@ export default function App() {
           },
         })}
       >
+        <Tab.Screen name="Authentication" component={AuthenticationStack} options={{ tabBarLabel: '' }} />
         <Tab.Screen name="SnackSearch" component={SnackSearch} options={{ tabBarLabel: '' }} />
         <Tab.Screen name="Profile" component={ProfileStack} options={{ tabBarLabel: '' }} />
-        <Tab.Screen name="Authentication" component={AuthenticationStack} options={{ tabBarLabel: '' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

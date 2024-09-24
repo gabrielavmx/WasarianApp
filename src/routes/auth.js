@@ -19,7 +19,8 @@ router.post('/login', async (req, res) => {
         if (user) {
             const passwordMatch = await bcrypt.compare(password, user.senha);
             if (passwordMatch) {
-                return res.status(200).json({ message: 'Login bem-sucedido', userId: user.id });
+                console.log('Usuário encontrado:', user);
+                return res.status(200).json({ message: 'Login bem-sucedido', userId: user.id_usuario });
             }
         }
 
