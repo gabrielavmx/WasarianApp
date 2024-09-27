@@ -4,10 +4,16 @@ import ButtonSearch from "../component/buttonSearch";
 import AnimatedSearch from "../component/AnimatedSearch";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+<<<<<<< HEAD
+import { faChevronLeft, faSearch } from "@fortawesome/free-solid-svg-icons";
+=======
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+>>>>>>> 43882f63b9d9bd3f39cde85eca00582c45478b65
 
-export default function SnackSearch() {
+type SnackSearchProps = { navigation:any }
+
+export default function SnackSearch({ navigation }:SnackSearchProps) {
     const [SearchFilterRestritions, setSearchFilterRestritions] = useState<string[]>([]);
     const [SearchFilterIngredients, setSearchFilterIngredients] = useState<string[]>([]);
     const [SearchFilterCozine, setSearchFilterCozine] = useState<string[]>([]);
@@ -18,10 +24,15 @@ export default function SnackSearch() {
 
     return (
         <ScrollView className="bg-neutral-900 h-full w-full">
-            <View className="flex items-center justify-center pt-24">
-                <Text className="flex items-center justify-center text-neutral-50 text-2xl font-bold">
+            <View className="pt-16">
+                <View className="flex flex-row items-center justify-between px-6">
+                    <TouchableOpacity onPress={()=>{navigation.navigate('HomeScreen')}}>
+                        <FontAwesomeIcon color="#fafafa" size={20} icon={faChevronLeft}/>
+                    </TouchableOpacity>
+                    <Text className="text-neutral-50 text-2xl font-bold pr-14">
                     Pesquisa de Alimentos
-                </Text>
+                    </Text>
+                </View>
                 
                 {/* RESTRIÇÕES ALIMENTARES */}
                 <AnimatedSearch text="Restrições Alimentares" selectedValue={SearchFilterRestritions}>

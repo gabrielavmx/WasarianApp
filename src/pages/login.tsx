@@ -77,7 +77,7 @@ export default function Login({ navigation }: loginProps) {
                 </View>
             </View>
 
-            <TouchableOpacity className="flex items-end px-10">
+            <TouchableOpacity className="flex items-end px-10" onPress={()=>{navigation.navigate('ForgottenPassword')}}>
                 <Text className="text-neutral-50 text-base">Esqueceu Sua Senha?</Text>
             </TouchableOpacity>
 
