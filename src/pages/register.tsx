@@ -109,7 +109,7 @@ export default function Register({ navigation }: registerProps) {
                 const data = await response.json();
                 console.log('Success Data:', data); // Log success data
                 Alert.alert('Sucesso', 'Usuário registrado com sucesso!');
-                navigation.navigate('UserProfile');
+                navigation.navigate('TabScreen');
             } else {
                 const errorData = await response.json();
                 console.log('Error Data:', errorData); // Log error data

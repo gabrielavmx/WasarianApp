@@ -29,7 +29,7 @@ export default function Login({ navigation }: loginProps) {
                 if (response.status === 200) {
                     console.log('Resultado do login:', result.userId);
                     await AsyncStorage.setItem('userId', result.userId.toString());
-                    navigation.navigate('UserProfile', { userId: result.userId });
+                    navigation.navigate('TabScreen', { userId: result.userId });
                 } else {
                     Alert.alert('Login failed', result.message);
                 }

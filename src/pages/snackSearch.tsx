@@ -4,12 +4,8 @@ import ButtonSearch from "../component/buttonSearch";
 import AnimatedSearch from "../component/AnimatedSearch";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-<<<<<<< HEAD
 import { faChevronLeft, faSearch } from "@fortawesome/free-solid-svg-icons";
-=======
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
->>>>>>> 43882f63b9d9bd3f39cde85eca00582c45478b65
 
 type SnackSearchProps = { navigation:any }
 

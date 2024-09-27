@@ -76,35 +76,6 @@ const TabScreen = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown: false, // Desativa o cabeçalho nas abas
-          tabBarIcon: ({ focused, color, size }) => {
-            let icon;
-
-            if (route.name === 'SnackSearch') {
-              icon = faUtensils;
-            } else if (route.name === 'Profile') {
-              icon = faUser;
-            } else if (route.name === 'Authentication') {
-              icon = faGlassWater;
-            }
-
-            return <FontAwesomeIcon icon={icon} size={20} color={color} />;
-          },
-          tabBarActiveTintColor: '#10b981',
-          tabBarInactiveTintColor: 'gray',
-          tabBarStyle: {
-            backgroundColor: '#171717',
-            height: 50,
-            paddingTop: 10
-          },
-        })}
-      >
-        <Tab.Screen name="Authentication" component={AuthenticationStack} options={{ tabBarLabel: '' }} />
-        <Tab.Screen name="SnackSearch" component={SnackSearch} options={{ tabBarLabel: '' }} />
-        <Tab.Screen name="Profile" component={ProfileStack} options={{ tabBarLabel: '' }} />
-      </Tab.Navigator>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} />
