@@ -1,4 +1,5 @@
 Comandos para utilizar o app:<br>
+npm i<br>
 node src/server.js<br>
 npx expo start<br><br>
 
