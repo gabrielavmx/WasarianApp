@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { Animated, Text, TouchableOpacity, View } from "react-native";
 import ButtonSearch from "./buttonSearch";
+import React from "react";
 
 type AnimatedSearchProps ={
     children: ReactNode,

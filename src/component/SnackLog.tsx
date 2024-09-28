@@ -2,6 +2,7 @@ import { faArrowRight, faChevronRight, IconDefinition } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {formatDate} from "date-fns";
 import { Text, TouchableOpacity, View } from "react-native";
+import React from "react";
 
 type SnackLogProps={
     dataEmPortugues: Date,

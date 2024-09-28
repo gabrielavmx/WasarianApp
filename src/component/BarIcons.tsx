@@ -1,6 +1,7 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Text, TouchableOpacity, View } from "react-native";
+import React from "react";
 
 type BarIconsProps = {
     text: string,

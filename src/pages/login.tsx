@@ -15,7 +15,7 @@ export default function Login({ navigation }: loginProps) {
         try {
             console.log("Iniciando login com", textEmail, textSenha);
 
-            const response = await fetch('http://192.168.0.2:3000/auth/login', {
+            const response = await fetch('http://192.168.0.175:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +29,13 @@ export default function Login({ navigation }: loginProps) {
                 if (response.status === 200) {
                     console.log('Resultado do login:', result.userId);
                     await AsyncStorage.setItem('userId', result.userId.toString());
-                    navigation.navigate('UserProfile', { userId: result.userId });
+                    navigation.navigate('TabScreen', {
+                        screen: "Profile",
+                        params:{
+                            screen: "HomeScreen",
+                            userId: result.userId 
+                        }
+                    });
                 } else {
                     Alert.alert('Login failed', result.message);
                 }

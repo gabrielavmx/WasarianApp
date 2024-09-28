@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { RadioButton, Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 import ButtonSearch from "../component/buttonSearch";
+import React from "react";
 
 export default function DietaryRestrictions() {
     const [selectedRestrictions, setSelectedRestrictions] = useState<string[]>([]);

@@ -23,7 +23,7 @@ export default function Register({ navigation }: registerProps) {
         },
     };
 
-    const onChangeDate = (event, selectedDate) => {
+    const onChangeDate = (event:any, selectedDate:Date) => {
         if (selectedDate) {
             const currentDate = selectedDate;
             setShowDatePicker(Platform.OS === 'ios');
@@ -95,7 +95,7 @@ export default function Register({ navigation }: registerProps) {
         console.log('User Data:', userData); // Log user data
 
         try {
-            const response = await fetch('http://192.168.0.2:3000/user/register', {
+            const response = await fetch('http://192.168.0.175:3000/user/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
