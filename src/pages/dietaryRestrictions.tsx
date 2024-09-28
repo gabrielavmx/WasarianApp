@@ -96,7 +96,9 @@ export default function DietaryRestrictions() {
 
                 <View>
                     {selectedRestrictions.includes("alergia") &&
-                    <View className="flex flex-row justify-center items-center mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl flex-wrap" style={{ gap: 10 }}>
+                    <View className="mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl"> 
+                        <Text className="text-neutral-50 text-xl font-bold mb-4 mt-2">Alergias</Text>
+                    <View className="flex flex-row justify-center items-center bg-neutral-800 rounded-3xl flex-wrap" style={{ gap: 10 }}>
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Ovos" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Leite" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Frutos do Mar" />
@@ -105,10 +107,13 @@ export default function DietaryRestrictions() {
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Peixe" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Nozes" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Trigo" />
+                        </View>
                     </View>}
 
                     {selectedRestrictions.includes("intolerancia") &&
-                    <View className="flex flex-row justify-center items-center mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl flex-wrap" style={{ gap: 10 }}>
+                    <View className="mt-8 p-4 mx-4 bg-neutral-800 rounded-3xl"> 
+                        <Text className="text-neutral-50 text-xl font-bold mb-4 mt-2">Intolerâncias</Text>
+                        <View className="flex flex-row justify-center items-center  flex-wrap" style={{ gap: 10 }}>
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Lactose" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Glúten" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Frutose" />
@@ -118,7 +123,7 @@ export default function DietaryRestrictions() {
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Peixe" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Nozes" />
                         <ButtonSearch onClick={setSelectedRestrictions} selectedValues={selectedRestrictions} text="Ovos" />
-                    </View>}
+                    </View></View>}
                 </View>
 
                 <View className="py-6 w-full px-8 flex items-center justify-center">

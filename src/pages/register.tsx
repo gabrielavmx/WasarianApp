@@ -23,7 +23,7 @@ export default function Register({ navigation }: registerProps) {
         },
     };
 
-    const onChangeDate = (event:any, selectedDate:Date) => {
+    const onChangeDate = (event:any, selectedDate:any) => {
         if (selectedDate) {
             const currentDate = selectedDate;
             setShowDatePicker(Platform.OS === 'ios');
@@ -33,7 +33,7 @@ export default function Register({ navigation }: registerProps) {
         }
     };
 
-    const formatDate = (date) => {
+    const formatDate = (date:any) => {
         return date ? date.toLocaleDateString('pt-BR') : '';
     };
 
@@ -109,7 +109,7 @@ export default function Register({ navigation }: registerProps) {
                 const data = await response.json();
                 console.log('Success Data:', data); // Log success data
                 Alert.alert('Sucesso', 'Usuário registrado com sucesso!');
-                navigation.navigate('UserProfile');
+                navigation.navigate('TabScreen');
             } else {
                 const errorData = await response.json();
                 console.log('Error Data:', errorData); // Log error data
