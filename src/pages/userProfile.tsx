@@ -17,7 +17,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
         try {
             const userId = await AsyncStorage.getItem('userId');
             if (userId) {
-                const response = await fetch(`http://192.168.0.2:3000/userProfile/${userId}`);
+                const response = await fetch(`http://172.20.10.11:3000/userProfile/${userId}`);
 
                 const text = await response.text();
                 console.log('Resposta do servidor:', text); 

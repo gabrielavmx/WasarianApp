@@ -15,7 +15,7 @@ export default function Login({ navigation }: loginProps) {
         try {
             console.log("Iniciando login com", textEmail, textSenha);
 
-            const response = await fetch('http://192.168.0.175:3000/auth/login', {
+            const response = await fetch('http://172.20.10.11:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

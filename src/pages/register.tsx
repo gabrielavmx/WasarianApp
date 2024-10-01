@@ -95,7 +95,7 @@ export default function Register({ navigation }: registerProps) {
         console.log('User Data:', userData); // Log user data
 
         try {
-            const response = await fetch('http://192.168.0.175:3000/user/register', {
+            const response = await fetch('http://172.20.10.11:3000/user/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
