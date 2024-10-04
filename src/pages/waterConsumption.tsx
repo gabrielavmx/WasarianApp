@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ScrollView, Text, View, Dimensions, TextInput, TouchableOpacity, Alert } from "react-native";
 import { PieChart } from 'react-native-chart-kit';
 import AsyncStorage from '@react-native-async-storage/async-storage'; // Para obter o ID do usuário
+import { DEVICE_IP } from '../config.js';
 
 
 export default function WaterConsumption() {
@@ -14,7 +15,7 @@ export default function WaterConsumption() {
     const sendDataToServer = async () => {
         try {
             const userId = await AsyncStorage.getItem('userId');
-            const response = await fetch('http://172.20.10.11:3000/water/add', {
+            const response = await fetch(`${DEVICE_IP}/water/add`, {
                 method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

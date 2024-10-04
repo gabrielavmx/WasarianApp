@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Image, Platform, ScrollView, Text, TextInput, View, TouchableOpacity, Alert } from "react-native";
 import { DefaultTheme, PaperProvider, RadioButton } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { DEVICE_IP } from '../config.js';
 
 type registerProps = { navigation: any }
 
@@ -95,7 +96,7 @@ export default function Register({ navigation }: registerProps) {
         console.log('User Data:', userData); // Log user data
 
         try {
-            const response = await fetch('http://172.20.10.11:3000/user/register', {
+            const response = await fetch(`${ DEVICE_IP }/user/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

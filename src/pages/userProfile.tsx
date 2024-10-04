@@ -4,7 +4,8 @@ import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPerson
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import SnackLog from "../component/SnackLog";
 import React, { useEffect, useState } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage'; // Para obter o ID do usuário
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DEVICE_IP } from '../config.js';
 
 type userProfileProps = {navigation:any}
 
@@ -17,7 +18,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
         try {
             const userId = await AsyncStorage.getItem('userId');
             if (userId) {
-                const response = await fetch(`http://172.20.10.11:3000/userProfile/${userId}`);
+                const response = await fetch(`${DEVICE_IP}/userProfile/${userId}`);
 
                 const text = await response.text();
                 console.log('Resposta do servidor:', text); 
