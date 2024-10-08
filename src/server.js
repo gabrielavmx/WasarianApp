@@ -7,7 +7,6 @@ const authRoutes = require('./routes/auth.js');
 const userProfileRoutes = require('./routes/userProfile.js');
 
 const app = express();
-
 app.use(cors());
 app.use(express.json()); // Adiciona o middleware para analisar JSON
 app.use(express.urlencoded({ extended: true })); // Adiciona o middleware para analisar URL-encoded data
