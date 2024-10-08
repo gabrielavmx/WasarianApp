@@ -49,7 +49,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                     <View className="flex flex-row gap-x-2 items-center">
                         {/* Exibe o nome do usuário ou um placeholder enquanto carrega */}
                         <Text className="text-neutral-50 font-bold text-2xl">{userName ? userName : "Carregando..."}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=>{navigation.navigate('EditProfile')}}>
                             <FontAwesomeIcon color="grey" icon={faPenToSquare}/>
                         </TouchableOpacity>
                     </View>
@@ -64,7 +64,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                         <BarIcons onClick={()=>{navigation.navigate('DietPlan')}} text="Refeições" icon={faUtensils}></BarIcons>
                         <BarIcons onClick={()=>{navigation.navigate('WaterConsumption')}} text="Consumo de Água" icon={faGlassWaterDroplet}></BarIcons>
                         <BarIcons onClick={()=>{navigation.navigate('DietaryRestrictions')}} text="Restrição Alimentar" icon={faBan}></BarIcons>
-                        <BarIcons onClick={()=>{}} text="Metas" icon={faPersonRunning}></BarIcons>
+                        <BarIcons onClick={()=>{navigation.navigate('Goal')}} text="Metas" icon={faPersonRunning}></BarIcons>
                     </View>
                 </View>
 
@@ -72,7 +72,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                 <View className="flex justify-start items-start w-full px-8 mt-8">
                     <View className="flex flex-row items-center justify-between w-full">
                         <Text className="text-2xl text-neutral-50 font-bold">Registro de Refeições</Text>
-                        <TouchableOpacity className="flex flex-row p-2 justify-center items-center gap-1">
+                        <TouchableOpacity onPress={()=>{navigation.navigate('MealRegistration')}} className="flex flex-row p-2 justify-center items-center gap-1">
                             <Text className="text-neutral-50 opacity-50">Novo</Text>
                             <FontAwesomeIcon color="grey" icon={faPlus}/>
                         </TouchableOpacity>

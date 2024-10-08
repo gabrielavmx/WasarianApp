@@ -13,6 +13,9 @@ import Login from './src/pages/login';
 import Register from './src/pages/register';
 import ForgottenPassword from './src/pages/forgottenPassword';
 import HomeScreen from './src/pages/homeScreen';
+import Goal from './src/pages/goal';
+import EditProfile from './src/pages/editProfile';
+import MealRegistration from './src/pages/mealRegistration';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +27,9 @@ const ProfileStack = () => {
       <Stack.Screen name="WaterConsumption" component={WaterConsumption} options={{ headerShown: false }} />
       <Stack.Screen name="DietPlan" component={DietPlan} options={{ headerShown: false }} />
       <Stack.Screen name="DietaryRestrictions" component={DietaryRestrictions} options={{ headerShown: false }} />
+      <Stack.Screen name="Goal" component={Goal} options={{ headerShown: false }} />
+      <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
+      <Stack.Screen name="MealRegistration" component={MealRegistration} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

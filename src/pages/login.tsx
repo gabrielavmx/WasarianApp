@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { faApple, faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 type loginProps = { navigation: any };
 
@@ -103,8 +104,17 @@ export default function Login({ navigation }: loginProps) {
                 <Text className="text-center text-white mx-4">INICIAR</Text>
                 <View className="flex-1 h-0.5 bg-gray-400 opacity-30" />
             </View>
-            <View>
-                {/* AQUI VAI FICAR O ICONE DO FACEBOOK Q EU N CONSIGO COLOCAR */}
+            <View className="flex flex-row items-center justify-between px-20 mt-4">
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faGoogle} color="#fafafa" size={30}/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faFacebook} color="#fafafa" size={30}/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faApple} color="#fafafa" size={30}/>
+                </TouchableOpacity>
+                
             </View>
         </ScrollView>
     );
