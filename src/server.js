@@ -4,6 +4,7 @@ const sequelize = require('./db');
 const waterRoutes = require('./routes/water.js');
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth.js');
+const mealRoutes = require('./routes/meal.js');
 const userProfileRoutes = require('./routes/userProfile.js');
 
 const app = express();
@@ -14,6 +15,7 @@ app.use('/water', waterRoutes);
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/userProfile', userProfileRoutes);
+app.use('/meal', mealRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {

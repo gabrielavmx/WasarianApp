@@ -3,11 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-<<<<<<< HEAD
 import { faApple, faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
-=======
 import { DEVICE_IP } from '../config.js';
->>>>>>> 52e9e3b8b188bf7bca2166af15e948151464c353
 
 type loginProps = { navigation: any };
 
