@@ -4,7 +4,7 @@ const sequelize = require('../db');
 const MealRegistration = sequelize.define('MealRegistration', {
     id_meta: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
             model: 'metas',
             key: 'id_meta'

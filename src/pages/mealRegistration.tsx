@@ -21,7 +21,7 @@ export default function MealRegistration() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    id_meta: null,
+                    id_usuario: userId,
                     tipo_refeicao: textTipo,
                     caloria: parseFloat(textQntd),
                     data: new Date().toISOString().split('T')[0],

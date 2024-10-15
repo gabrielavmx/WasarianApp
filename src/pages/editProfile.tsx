@@ -42,7 +42,7 @@ export default function EditProfile() {
                 </View>
 
                 <View className="flex flex-row">
-                    <Text className="text-neutral-50 text-base">Semha</Text>
+                    <Text className="text-neutral-50 text-base">Senha</Text>
                     <TextInput
                         className="text-neutral-50 text-base bg-neutral-800 mb-3 w-72 rounded-2xl h-12 px-4 ml-4"
                         value={textSenha}

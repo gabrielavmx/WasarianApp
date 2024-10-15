@@ -1,21 +1,30 @@
 const express = require('express');
 const MealRegistration = require('../models/MealRegistration.js');
+const Metas = require('../models/Metas.js');
 const router = express.Router();
 
 router.post('/add', async (req, res) => {
-    console.log('Dados recebidos:', req.body);
     try {
-        let { id_meta, tipo_refeicao, caloria, data, descricao } = req.body;
-
+        let { id_usuario, tipo_refeicao, caloria, data, descricao } = req.body;
         caloria = parseFloat(caloria);
 
         if (caloria !== undefined && isNaN(caloria)) {
             return res.status(400).json({ error: 'Quantidade de calorias inválida.' });
         }
 
-        const newEntry = await MealRegistration.create({ id_meta, tipo_refeicao, caloria, data, descricao });
+        const meta = await Metas.findOne({ where: { id_usuario } });
 
-        console.log('Novo registro de refeição criado:', newEntry);
+        if (!meta) {
+            return res.status(404).json({ error: 'Meta não encontrada para o usuário fornecido.' });
+        }
+
+        const newEntry = await MealRegistration.create({
+            tipo_refeicao,
+            caloria,
+            data,
+            descricao,
+            id_meta: meta.id_meta
+        });
 
         res.status(201).json(newEntry);
     } catch (error) {
