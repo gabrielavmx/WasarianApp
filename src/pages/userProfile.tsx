@@ -1,6 +1,6 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import BarIcons from "../component/BarIcons";
-import { faBan, faBurger, faGlassWaterDroplet, faMugHot, faPenToSquare, faPersonRunning, faPlus, faUtensils, faWineGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faGlassWaterDroplet, faPenToSquare, faPersonRunning, faPlus, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import SnackLog from "../component/SnackLog";
 import React, { useEffect, useState } from "react";
@@ -10,10 +10,10 @@ import { DEVICE_IP } from '../config.js';
 type userProfileProps = {navigation:any}
 
 export default function UserProfile({ navigation }: userProfileProps) {
-    const [userName, setUserName] = useState<string | null>(null); // Armazenar o nome do usuário
-    const [userSince, setUserSince] = useState<string | null>(null); // Armazenar a data de criação
+    const [userName, setUserName] = useState<string | null>(null);
+    const [userSince, setUserSince] = useState<string | null>(null);
+    const [lastMeals, setLastMeals] = useState<any[]>([]);
 
-    // Função para buscar o nome do usuário com fetch
     const fetchUserData = async () => {
         try {
             const userId = await AsyncStorage.getItem('userId');
@@ -36,9 +36,29 @@ export default function UserProfile({ navigation }: userProfileProps) {
         }
     };
 
-    // useEffect para disparar a função ao carregar o componente
+    const fetchLastMeal = async () => {
+        try {
+            const userId = await AsyncStorage.getItem('userId');
+            if (userId) {
+                const response = await fetch(`${DEVICE_IP}/lastMeal/${userId}`);
+
+                const text = await response.text();
+                const data = JSON.parse(text);
+
+                if (response.ok && Array.isArray(data)) {
+                    setLastMeals(data.slice(0, 3));
+                } else {
+                    console.error("Erro ao buscar últimas refeições:", data.message);
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao buscar últimas refeições:", error);
+        }
+    };
+    
     useEffect(() => {
         fetchUserData();
+        fetchLastMeal();
     }, []);
 
     return (
@@ -79,9 +99,19 @@ export default function UserProfile({ navigation }: userProfileProps) {
                         </TouchableOpacity>
                     </View>
                     <View className="mt-4">
-                        <SnackLog onClick={()=>{}} text="Café da Manhã - 500kcal" icon={faMugHot} dataEmPortugues={new Date()}></SnackLog>
-                        <SnackLog onClick={()=>{}} text="Almoço - 800kcal" icon={faBurger} dataEmPortugues={new Date()}></SnackLog>
-                        <SnackLog onClick={()=>{}} text="Janta - 1050kcal" icon={faWineGlass} dataEmPortugues={new Date()} end></SnackLog>
+                        {Array.isArray(lastMeals) && lastMeals.length > 0 ? (
+                            lastMeals.map((meal, index) => (
+                                <SnackLog 
+                                    key={index}
+                                    onClick={() => {}} 
+                                    text={`${meal.tipo_refeicao} - ${meal.caloria}kcal`} 
+                                    icon={faUtensils} 
+                                    dataEmPortugues={new Date(meal.data)} 
+                                />
+                            ))
+                        ) : (
+                            <Text className="text-neutral-50">Carregando...</Text>
+                        )}
                     </View>
                     <TouchableOpacity className="flex items-center mt-1">
                         <Text className="text-neutral-50 opacity-50 text">Ver Ultimas Refeições</Text>
