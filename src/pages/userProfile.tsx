@@ -52,7 +52,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                 }
             }
         } catch (error) {
-            console.error("Erro ao buscar últimas refeições:", error);
+            console.error("Nenhuma refeição encontrada", error);
         }
     };
     
@@ -110,7 +110,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                                 />
                             ))
                         ) : (
-                            <Text className="text-neutral-50">Carregando...</Text>
+                            <Text className="text-neutral-50">Nenhuma refeição encontrada</Text>
                         )}
                     </View>
                     <TouchableOpacity className="flex items-center mt-1">
