@@ -48,7 +48,7 @@ export default function UserProfile({ navigation }: userProfileProps) {
                 if (response.ok && Array.isArray(data)) {
                     setLastMeals(data.slice(0, 3));
                 } else {
-                    console.error("Erro ao buscar últimas refeições:", data.message);
+                    console.warn(data.message);
                 }
             }
         } catch (error) {

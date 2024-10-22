@@ -79,14 +79,20 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
 
       <Text className="text-base text-neutral-50 font-bold px-6 py-4">Receita em Destaque</Text>
       <View className="bg-neutral-800 flex-1 h-90 rounded-2xl mx-6 py-4 px-4">
-        <View className="bg-blue-500 w-full h-40 rounded-2xl" />
+        <Image
+          className="w-full h-40 rounded-2xl"
+          source={require('../img/salada_arroz.jpg')}
+          resizeMode="cover"
+        />
         <View className="flex flex-row items-center justify-between">
           <View>
-            <Text className="font-bold text-base text-neutral-50 pt-2">Nome da Receita</Text>
-            <Text className="text-base text-neutral-50">Descrição e categoria</Text>
+            <Text className="font-bold text-base text-neutral-50 pt-2">Salada de Arroz</Text>
+            <Text className="text-base text-neutral-50">Salada, Prato Principal</Text>
           </View>
           <TouchableOpacity className="pt-2">
-            <View className="bg-emerald-400 h-10 rounded-3xl flex items-center justify-center px-4"><Text className="text-neutral-900 text-base font-bold">Teste Agora</Text></View>
+            <View className="bg-emerald-400 h-10 rounded-3xl flex items-center justify-center px-4">
+              <Text className="text-neutral-900 text-base font-bold">Teste Agora</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
