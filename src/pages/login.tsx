@@ -17,7 +17,7 @@ export default function Login({ navigation }: loginProps) {
         try {
             console.log("Iniciando login com", textEmail, textSenha);
 
-            const response = await fetch(`${DEVICE_IP}/auth/login`, {  // Usando a variável DEVICE_IP
+            const response = await fetch(`${DEVICE_IP}/auth/login`, { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

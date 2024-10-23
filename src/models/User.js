@@ -27,8 +27,15 @@ const User = sequelize.define('User', {
     sexo: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    resetPasswordToken: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    resetPasswordExpires: {
+        type: DataTypes.DATE,
+        allowNull: true,
     }
-
 }, {
     tableName: 'usuario',
     timestamps: true

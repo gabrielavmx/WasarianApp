@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth.js');
 const mealRoutes = require('./routes/meal.js');
 const userProfileRoutes = require('./routes/userProfile.js');
 const lastMealRoutes = require('./routes/lastMeal.js');
+const forgotPasswordRoutes = require('./routes/forgotPassword.js');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,7 @@ app.use('/auth', authRoutes);
 app.use('/userProfile', userProfileRoutes);
 app.use('/meal', mealRoutes);
 app.use('/lastMeal', lastMealRoutes);
+app.use('/forgotPassword', forgotPasswordRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
