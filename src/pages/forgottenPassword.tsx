@@ -15,7 +15,7 @@ export default function ForgottenPassword({ navigation }: ForgottenPasswordProps
     try {
       const response = await axios.post(`${DEVICE_IP}/forgotpassword/reset`, { email: textEmail });
       Alert.alert('Sucesso', 'Um link de redefinição de senha foi enviado para o seu e-mail.');
-      navigation.navigate('Login');
+      navigation.navigate('ResetPassword');
     } catch (error) {
       console.error('Erro ao enviar link de redefinição de senha:', error);
       Alert.alert('Erro', 'Ocorreu um erro ao tentar enviar o link de redefinição de senha. Por favor, tente novamente.');
